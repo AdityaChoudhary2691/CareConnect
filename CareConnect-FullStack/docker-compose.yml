@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: careconnect-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: careconnect
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - careconnect_pgdata:/var/lib/postgresql/data
+volumes:
+  careconnect_pgdata:
