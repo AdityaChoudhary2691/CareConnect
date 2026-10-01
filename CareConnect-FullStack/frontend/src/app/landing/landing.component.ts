@@ -1,5 +1,129 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-@Component({selector:'cc-landing',standalone:true,imports:[RouterLink],template:`
-<div class="landing"><header class="landing-nav"><div class="brand-inline"><div class="logo">CC</div><b>CareConnect</b></div><nav><a href="#features">Features</a><a href="#about">About</a><a routerLink="/login">Login</a></nav></header><section class="hero"><div class="hero-copy"><span class="eyebrow">WEB-BASED ELECTRONIC HEALTH RECORD SYSTEM</span><h1>Your Health Records,<br><span>Connected.</span></h1><p>CareConnect provides a centralized digital platform for managing medical records, appointments, prescriptions, test results, and healthcare information.</p><div class="hero-actions"><a class="btn primary" routerLink="/register">Get Started</a><a class="btn outline" routerLink="/login">Login</a></div></div><div class="hero-card"><div class="pulse">♥</div><h3>Healthcare at a glance</h3><p>Appointments, prescriptions, reports and medical history in one organized portal.</p><div class="mini-grid"><div><b>24/7</b><small>Record access</small></div><div><b>100%</b><small>Digital workflow</small></div></div></div></section><section id="features" class="section"><span class="eyebrow">PLATFORM FEATURES</span><h2>Everything in one place</h2><div class="feature-grid">@for(f of features;track f.title){<article class="feature"><div class="feature-icon">{{f.icon}}</div><h3>{{f.title}}</h3><p>{{f.text}}</p></article>}</div></section><section id="about" class="about"><div><span class="eyebrow">ABOUT CARECONNECT</span><h2>A connected healthcare experience</h2><p>CareConnect organizes healthcare information digitally for patients, doctors, and administrators. This college-project prototype demonstrates the complete workflow using browser-local data.</p></div><div class="about-stat"><b>3</b><span>Demo roles</span><b>8+</b><span>Core modules</span></div></section><footer>© 2026 CareConnect · Web-Based Electronic Health Record System</footer></div>`})
-export class LandingComponent{features=[{icon:'▣',title:'Electronic Health Records',text:'Keep consultation history and treatment information organized.'},{icon:'◷',title:'Appointment Management',text:'Book and manage appointments through a patient portal.'},{icon:'Rx',title:'Digital Prescriptions',text:'Doctors can create prescriptions and patients can view them.'},{icon:'⌁',title:'Test Results',text:'Order tests and publish results directly to the patient portal.'},{icon:'◉',title:'Patient Portal',text:'Patients can access their healthcare information in one place.'},{icon:'⚕',title:'Doctor Dashboard',text:'Manage patients, consultations, prescriptions and orders.'}]}
+
+@Component({
+  selector: 'cc-landing',
+  standalone: true,
+  imports: [RouterLink],
+  template: `
+    <div class="landing">
+      <header class="landing-nav">
+        <div class="brand-inline">
+          <div class="logo">CC</div>
+          <b>CareConnect</b>
+        </div>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a routerLink="/login">Login</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">WEB-BASED ELECTRONIC HEALTH RECORD SYSTEM</span>
+          <h1>
+            Your Health Records,<br />
+            <span>Connected.</span>
+          </h1>
+          <p>
+            CareConnect provides a centralized digital platform for managing
+            medical records, appointments, prescriptions, test results, and
+            healthcare information.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" routerLink="/register">Get Started</a>
+            <a class="btn outline" routerLink="/login">Login</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="pulse">♥</div>
+          <h3>Healthcare at a glance</h3>
+          <p>
+            Appointments, prescriptions, reports and medical history in one
+            organized portal.
+          </p>
+          <div class="mini-grid">
+            <div>
+              <b>24/7</b>
+              <small>Record access</small>
+            </div>
+            <div>
+              <b>100%</b>
+              <small>Digital workflow</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <span class="eyebrow">PLATFORM FEATURES</span>
+        <h2>Everything in one place</h2>
+        <div class="feature-grid">
+          @for (f of features; track f.title) {
+            <article class="feature">
+              <div class="feature-icon">{{ f.icon }}</div>
+              <h3>{{ f.title }}</h3>
+              <p>{{ f.text }}</p>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div>
+          <span class="eyebrow">ABOUT CARECONNECT</span>
+          <h2>A connected healthcare experience</h2>
+          <p>
+            CareConnect organizes healthcare information digitally for patients,
+            doctors, and administrators. This college-project prototype
+            demonstrates the complete workflow using browser-local data.
+          </p>
+        </div>
+        <div class="about-stat">
+          <b>3</b><span>Demo roles</span>
+          <b>8+</b><span>Core modules</span>
+        </div>
+      </section>
+
+      <footer>
+        © 2026 CareConnect · Web-Based Electronic Health Record System
+      </footer>
+    </div>
+  `,
+})
+export class LandingComponent {
+  features = [
+    {
+      icon: '▣',
+      title: 'Electronic Health Records',
+      text: 'Keep consultation history and treatment information organized.',
+    },
+    {
+      icon: '◷',
+      title: 'Appointment Management',
+      text: 'Book and manage appointments through a patient portal.',
+    },
+    {
+      icon: 'Rx',
+      title: 'Digital Prescriptions',
+      text: 'Doctors can create prescriptions and patients can view them.',
+    },
+    {
+      icon: '⌁',
+      title: 'Test Results',
+      text: 'Order tests and publish results directly to the patient portal.',
+    },
+    {
+      icon: '◉',
+      title: 'Patient Portal',
+      text: 'Patients can access their healthcare information in one place.',
+    },
+    {
+      icon: '⚕',
+      title: 'Doctor Dashboard',
+      text: 'Manage patients, consultations, prescriptions and orders.',
+    },
+  ];
+}

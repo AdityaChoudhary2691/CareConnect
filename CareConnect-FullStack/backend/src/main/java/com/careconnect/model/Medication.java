@@ -1,6 +1,8 @@
 package com.careconnect.model;
 import jakarta.persistence.*;
-@Embeddable public class Medication {
+@Embeddable
+public class Medication {
  public String name, dosage, frequency, duration;
- @Column(columnDefinition="TEXT") public String instructions, precautions;
+ @Column(columnDefinition="TEXT")
+ public String instructions, precautions;
 }

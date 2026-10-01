@@ -1,3 +1,29 @@
 package com.careconnect.controller;
 import com.careconnect.model.MedicalRecord; import com.careconnect.repository.MedicalRecordRepository; import org.springframework.web.bind.annotation.*; import java.util.*;
-@RestController @RequestMapping("/api/medical-records") public class MedicalRecordController {private final MedicalRecordRepository r; public MedicalRecordController(MedicalRecordRepository r){this.r=r;} @GetMapping public List<MedicalRecord> all(){return r.findAll();} @GetMapping("/patient/{id}") public List<MedicalRecord> patient(@PathVariable String id){return r.findByPatientId(id);} @GetMapping("/doctor/{id}") public List<MedicalRecord> doctor(@PathVariable String id){return r.findByDoctorId(id);} @PostMapping public MedicalRecord create(@RequestBody MedicalRecord x){if(x.id==null)x.id="rec-"+System.currentTimeMillis();return r.save(x);} @PutMapping("/{id}") public MedicalRecord update(@PathVariable String id,@RequestBody MedicalRecord x){x.id=id;return r.save(x);}}
+@RestController @RequestMapping("/api/medical-records")
+public class MedicalRecordController {
+    private final MedicalRecordRepository r;
+    public MedicalRecordController(MedicalRecordRepository r){
+        this.r=r;
+    }
+    @GetMapping
+    public List<MedicalRecord> all(){
+        return r.findAll();
+    }
+    @GetMapping("/patient/{id}")
+    public List<MedicalRecord> patient(@PathVariable String id){
+        return r.findByPatientId(id);
+    }
+    @GetMapping("/doctor/{id}")
+    public List<MedicalRecord> doctor(@PathVariable String id){
+        return r.findByDoctorId(id);
+    }
+    @PostMapping public MedicalRecord create(@RequestBody MedicalRecord x){
+        if(x.id==null) x.id="rec-"+System.currentTimeMillis();
+        return r.save(x);
+    }
+    @PutMapping("/{id}")
+    public MedicalRecord update(@PathVariable String id,@RequestBody MedicalRecord x){
+        x.id=id;return r.save(x);
+    }
+}

@@ -1,3 +1,24 @@
 package com.careconnect.controller;
 import com.careconnect.model.Prescription; import com.careconnect.repository.PrescriptionRepository; import org.springframework.web.bind.annotation.*; import java.util.*;
-@RestController @RequestMapping("/api/prescriptions") public class PrescriptionController {private final PrescriptionRepository r; public PrescriptionController(PrescriptionRepository r){this.r=r;} @GetMapping public List<Prescription> all(){return r.findAll();} @GetMapping("/patient/{id}") public List<Prescription> patient(@PathVariable String id){return r.findByPatientId(id);} @PostMapping public Prescription create(@RequestBody Prescription x){if(x.id==null)x.id="rx-"+System.currentTimeMillis();return r.save(x);} @PutMapping("/{id}") public Prescription update(@PathVariable String id,@RequestBody Prescription x){x.id=id;return r.save(x);}}
+@RestController
+@RequestMapping("/api/prescriptions")
+public class PrescriptionController {
+    private final PrescriptionRepository r;
+    public PrescriptionController(PrescriptionRepository r){
+        this.r=r;
+    }
+    @GetMapping public List<Prescription> all(){
+        return r.findAll();
+    }
+    @GetMapping("/patient/{id}")
+    public List<Prescription> patient(@PathVariable String id){
+        return r.findByPatientId(id);
+    }
+    @PostMapping public Prescription create(@RequestBody Prescription x){
+        if(x.id==null) x.id="rx-"+System.currentTimeMillis();
+        return r.save(x);
+    }
+    @PutMapping("/{id}") public Prescription update(@PathVariable String id,@RequestBody Prescription x){
+        x.id=id;return r.save(x);
+    }
+}
