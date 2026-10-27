@@ -1,16 +1,10 @@
 export type Role = 'patient' | 'doctor' | 'admin';
 
 export type AppointmentStatus =
-  | 'Pending'
-  | 'Confirmed'
-  | 'Completed'
-  | 'Cancelled';
+  'Pending' | 'Confirmed' | 'Completed' | 'Cancelled';
 
 export type OrderStatus =
-  | 'Ordered'
-  | 'In Progress'
-  | 'Completed'
-  | 'Cancelled';
+  'Ordered' | 'In Progress' | 'Completed' | 'Cancelled';
 
 export interface User {
   id: string;
@@ -20,7 +14,7 @@ export interface User {
   password: string;
   role: Role;
   active: boolean;
-  phone?: string;
+  phone: string;
 }
 
 export interface Patient extends User {
